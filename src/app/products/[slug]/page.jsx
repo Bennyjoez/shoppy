@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const SingleProduct = () => {
-  return (
-    <div className='min-h-screen'>SingleProduct</div>
-  )
-}
+const SingleProduct = () => (
+  <div className="min-h-screen">SingleProduct</div>
+);
 
-export default SingleProduct
+export default SingleProduct;

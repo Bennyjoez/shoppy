@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const SingleCategory = () => {
-  return (
-    <div className='min-h-screen'>SingleCategory</div>
-  )
-}
+const SingleCategory = () => (
+  <div className="min-h-screen">SingleCategory</div>
+);
 
-export default SingleCategory
+export default SingleCategory;

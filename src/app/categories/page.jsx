@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const Categories = () => {
-  return (
-    <div className='min-h-screen'>Categories</div>
-  )
-}
+const Categories = () => (
+  <div className="min-h-screen">Categories</div>
+);
 
-export default Categories
+export default Categories;
