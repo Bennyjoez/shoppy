@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Loading = () => (
-  <div>Loading...</div>
+  <div className='min-h-screen'>Loading Products...</div>
 );
 
 export default Loading;
