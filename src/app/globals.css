@@ -25,21 +25,3 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
-
-/* .logo {
-  margin-right: auto;
-}
-
-.navbar .links {
-  display: none;
-}
-
-@media only screen and (min-width: 768) {
-  .logo {
-    margin-right: initial;
-  }
-  
-  .navbar .links {
-    display: flex;
-  }
-} */
