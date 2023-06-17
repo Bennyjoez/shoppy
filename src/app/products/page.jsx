@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import getProducts from '@/data/getProducts';
+import getProducts from '@/lib/getProducts';
 
 const Products = async () => {
   const data = await getProducts();
