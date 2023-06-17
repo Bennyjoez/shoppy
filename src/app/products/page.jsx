@@ -1,28 +1,20 @@
-'use client';
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import getProducts from '@/data/getProducts';
 
-const Products = () => {
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    (async function fetchProducts() {
-      const filtered = [];
-      const data = await getProducts();
-      const men = data.filter((each) => each.category === 'men\'s clothing');
-      const women = data.filter((each) => each.category === 'women\'s clothing');
-      const jewelery = data.filter((each) => each.category === 'jewelery');
-      const electronics = data.filter((each) => each.category === 'electronics');
+const Products = async () => {
+  const data = await getProducts();
+  const products = [];
 
-      filtered.push({ "Men's clothing": men });
-      filtered.push({ "Women's clothing": women });
-      filtered.push({ Jewelery: jewelery });
-      filtered.push({ electronics });
+  const men = await data.filter((each) => each.category === 'men\'s clothing');
+  const women = await data.filter((each) => each.category === 'women\'s clothing');
+  const jewelery = await data.filter((each) => each.category === 'jewelery');
+  const electronics = await data.filter((each) => each.category === 'electronics');
 
-      setProducts(filtered);
-    }());
-  }, []);
+  products.push({ "Men's clothing": men });
+  products.push({ "Women's clothing": women });
+  products.push({ Jewelery: jewelery });
+  products.push({ electronics: electronics });
 
   return (
     <div className="min-h-screen text-blue-950">
