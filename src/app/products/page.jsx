@@ -29,7 +29,8 @@ const Products = async () => {
                 {item[category].map(({
                   id, image, price, rating, title, description,
                 }) => (
-                  <li key={id} className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50">
+                  <li key={id} className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50"
+                  >
                     <Image
                       src={image}
                       alt={title}
