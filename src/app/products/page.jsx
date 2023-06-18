@@ -18,7 +18,7 @@ const Products = async () => {
   products.push({ electronics: electronics });
 
   return (
-    <div className="min-h-screen text-blue-950">
+    <div className="min-h-screen text-blue-950 mb-14">
       <h2 className="font-bold text-4xl text-center my-4">Products</h2>
       <ul className="">
         {products?.map((item, i) => {

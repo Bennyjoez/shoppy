@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Footer = () => (
-  <div className="h-full bg-blue-950 flex items-center justify-center py-2">
+  <div className="min-w-screen fixed bottom-0 left-0 right-0 bg-blue-950 flex items-center justify-center py-2">
     <ul className="flex gap-4">
       <li className="text-white flex items-center text-xl">Created by Benson @2023</li>
       <li>

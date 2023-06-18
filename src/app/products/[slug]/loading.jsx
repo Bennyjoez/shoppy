@@ -2,7 +2,7 @@ import React from 'react'
 
 function loading() {
   return (
-    <div>loading product details...</div>
+    <div className='min-h-screen'>loading product details...</div>
   )
 }
 
