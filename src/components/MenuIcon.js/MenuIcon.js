@@ -5,7 +5,6 @@ const MenuIcon = () => {
   function handleClick() {
     const menu = document.querySelector('#mobile-menu')
     menu.classList.toggle('hidden')
-    setOpen(prev => !prev)
   }
   return (
     <button
