@@ -1,9 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 
 const MenuIcon = () => {
-  const [open, setOpen] = useState(false);
-  const menuCont = document.querySelector('#mobile-menu');
   function handleClick() {
     const menu = document.querySelector('#mobile-menu')
     menu.classList.toggle('hidden')
