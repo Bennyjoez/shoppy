@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import getProducts from '@/lib/getProducts';
+import Link from 'next/link';
 
 const Products = async () => {
   const data = await getProducts();
@@ -57,6 +58,12 @@ const Products = async () => {
                     <button type="button" className="border rounded-lg p-2 w-full mt-4 hover:text-orange-400 hover:font-bold hover:bg-blue-950 transition-all">
                       Add to Cart
                     </button>
+                    <Link href={`/products/${id}`}>
+                      <button type="button" className="border rounded-lg p-2 w-full mt-4 hover:text-orange-400 hover:font-bold hover:bg-blue-950 transition-all"
+                      >
+                        Details
+                      </button>
+                    </Link>
                   </li>
                 ))}
               </ul>
