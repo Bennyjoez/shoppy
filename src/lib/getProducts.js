@@ -1,10 +1,8 @@
-import axios from 'axios';
-
 export default async function getProducts() {
-  try {
-    const res = await axios.get('https://fakestoreapi.com/products');
-    return res.data;
-  } catch (err) {
+  const res = await fetch('https://fakestoreapi.com/products');
+  
+  if (!res.status) {
     throw new Error('Failed to fetch data');
   }
+  return res.json();
 }
