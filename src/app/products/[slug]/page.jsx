@@ -26,7 +26,7 @@ const SingleProduct = async ({params}) => {
         <div className='md:w-1/2 ml-4'>
           <h4 className="font-bold text-lg">{title}</h4>
           <p className='w-full'>{description}</p>
-          <h4 className="font-bold mt-2">
+          <h4 className="font-bold mt-2 text-2xl lg:text-3xl">
             $
             {price}
           </h4>
