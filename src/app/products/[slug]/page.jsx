@@ -8,8 +8,9 @@ const SingleProduct = async ({params}) => {
   const products = await getProducts();
   const {id, image, price, rating, title, description} = products.filter((prod) => prod.id == targetId)[0];
   return (
-    <div key={id} className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50"
+    <div key={id} className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
     >
+      <h4 className="font-bold">{title}</h4>
       <Image
         src={image}
         alt={title}
@@ -28,8 +29,7 @@ const SingleProduct = async ({params}) => {
           )
         </span>
       </div>
-      <h4 className="">{title}</h4>
-      <p>{description}</p>
+      <p className=''>{description}</p>
       <h4 className="font-bold mt-2">
         $
         {price}
