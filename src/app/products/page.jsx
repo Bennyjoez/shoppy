@@ -1,7 +1,8 @@
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import getProducts from '@/lib/getProducts';
-import Link from 'next/link';
+import Button from '@/components/button/button';
 
 const Products = async () => {
   const data = await getProducts();
@@ -28,9 +29,12 @@ const Products = async () => {
               <h4 className="font-bold text-lg bg-blue-900 text-white p-2 capitalize">{category}</h4>
               <ul className="flex flex-wrap justify-center p-4">
                 {item[category].map(({
-                  id, image, price, rating, title, description,
+                  id, image, price, rating, title,
                 }) => (
-                  <li key={id} className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50"
+                  <Link
+                    key={id}
+                    href={`/products/${id}`}
+                    className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50"
                   >
                     <Image
                       src={image}
@@ -55,16 +59,14 @@ const Products = async () => {
                       $
                       {price}
                     </h4>
-                    <button type="button" className="border rounded-lg p-2 w-full mt-4 hover:text-orange-400 hover:font-bold hover:bg-blue-950 transition-all">
-                      Add to Cart
+                    <Button name ="Add to Cart" />
+                    <button
+                      type="button"
+                      className="border rounded-lg p-2 w-full mt-4 hover:text-orange-400 hover:font-bold hover:bg-blue-950 transition-all"
+                    >
+                      Details
                     </button>
-                    <Link href={`/products/${id}`}>
-                      <button type="button" className="border rounded-lg p-2 w-full mt-4 hover:text-orange-400 hover:font-bold hover:bg-blue-950 transition-all"
-                      >
-                        Details
-                      </button>
-                    </Link>
-                  </li>
+                  </Link>
                 ))}
               </ul>
             </li>

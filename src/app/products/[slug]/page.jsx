@@ -8,7 +8,6 @@ const SingleProduct = async ({params}) => {
   const targetId = params.slug;
   const products = await getProducts();
   const comments = await getComments();
-  console.log(comments)
   const {id, image, price, rating, title, description} = products.filter((prod) => prod.id == targetId)[0];
   return (
     <div key={id} className="w-96 mb-14 md:w-3/4 xl:w-2/3 p-4 ms-auto me-auto border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
