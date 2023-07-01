@@ -1,29 +1,40 @@
 import getProducts from '@/lib/getProducts';
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Categories = async () => {
   const data = await getProducts();
-  const products = [];
-
-  const men = await data.filter((each) => each.category === 'men\'s clothing');
-  const women = await data.filter((each) => each.category === 'women\'s clothing');
-  const jewelery = await data.filter((each) => each.category === 'jewelery');
-  const electronics = await data.filter((each) => each.category === 'electronics');
-
-  products.push({ "Men's clothing": men });
-  products.push({ "Women's clothing": women });
-  products.push({ Jewelery: jewelery });
-  products.push({ electronics: electronics });
-  console.log(products)
+  const products = {
+    "Men's Clothing": "/men.jpg",
+    "Women's Clothing": "/women.jpg",
+    "Jewelery": "/jewelery_2.jpg",
+    "Electronics": "/electronics.jpg",
+  };
+  const categories = Object.keys(products)
 
   return (
-    <div className="min-h-screen">
-      <ul>
-        {products?.map((category, i) => {
+    <div className="min-h-screen text-blue-950">
+      <ul
+        className='grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-4'
+      >
+        {categories?.map((category, i) => {
           return (
-            <li key={i}>
-              <h4>test</h4>
-            </li>
+            <Link
+              key={i}
+              href={`/categories/${category}`}
+              className='my-10 bg-white rounded-xl hover:text-orange-400 hover:underline'
+            >
+              <h2
+                className='font-bold text-2xl text-center py-4 hover:underline'>{category}</h2>
+              <Image
+                src={products[category]}
+                alt={category}
+                height={400}
+                width={400}
+                className='self-center w-full'
+              />
+            </Link>
           )
         })}
       </ul>
