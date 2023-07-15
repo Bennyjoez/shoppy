@@ -22,7 +22,7 @@ const Categories = async () => {
           return (
             <Link
               key={i}
-              href={`/categories/${category}`}
+              href={`/categories/${category.split(' ')[0]}`}
               className='my-10 bg-white rounded-xl hover:text-orange-400 hover:underline'
             >
               <h2
