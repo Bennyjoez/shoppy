@@ -16,6 +16,26 @@ const Products = async () => {
   products.push({ Jewelery: jewelery });
   products.push({ electronics: electronics });
 
+  const capitalizeEachWord = (str) => {
+    const words = str.split(' ');
+    const capitalizedWords = words.map(word => {
+      const firstChar = word.charAt(0);
+      const restOfWord = word.slice(1);
+      return firstChar.toUpperCase() + restOfWord.toLowerCase();
+    });
+
+    return capitalizedWords.join(' ');
+  }
+
+  const checkLen = (title) => {
+    const maxlen = 20;
+    if(title.length < maxlen) {
+      return capitalizeEachWord(title);
+    }
+    const word = title.slice(0, maxlen) + '...'
+    return capitalizeEachWord(word)
+  }
+
   return (
     <div className="min-h-screen text-blue-950">
       <h2 className="font-bold text-4xl text-center my-4">Products</h2>
@@ -25,18 +45,18 @@ const Products = async () => {
           return (
             <li key={i}>
               <h4 className="font-bold text-lg bg-blue-900 text-white p-2 capitalize">{category}</h4>
-              <ul className="flex flex-wrap justify-center p-4">
+              <ul className="flex p-4 overflow-x-auto">
                 {item[category].map(({
                   id, image, price, rating, title, description,
                 }) => (
-                  <li key={id} className="w-64 border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50"
+                  <li key={id} className="box-content h-full min-w-fit w-48 max-w-xs border m-2 bg-white p-2 rounded-xl flex flex-col shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50"
                   >
                     <Image
                       src={image}
                       alt={title}
                       height="200"
                       width="200"
-                      className="h-1/2 w-full grow"
+                      className="w-24 h-24 object-contain b"
                     />
                     <div className="flex my-2">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -49,7 +69,7 @@ const Products = async () => {
                         )
                       </span>
                     </div>
-                    <h4 className="">{title}</h4>
+                    <h4 className="">{checkLen(title)}</h4>
                     <h4 className="font-bold mt-2">
                       $
                       {price}
