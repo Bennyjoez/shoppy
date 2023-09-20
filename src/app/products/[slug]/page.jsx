@@ -10,19 +10,19 @@ const SingleProduct = async ({params}) => {
   const comments = await getComments();
   const {id, image, price, rating, title, description} = products.filter((prod) => prod.id == targetId)[0];
   return (
-    <div key={id} className="w-96 mb-14 md:w-3/4 xl:w-2/3 p-4 ms-auto me-auto border m-2 bg-white p-2 rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
+    <div key={id} className="w-screen max-h-fit mb-4 ms-auto me-auto xl:w-3/4 border bg-white rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
     >
-      <div className='md:flex'>
+      <div className='md:flex w-fit'>
         <div className='w-1/2 md:h-3/4 xl:min-h-5/6 ms-auto me-auto'>
           <Image
             src={image}
             alt={title}
             height="200"
             width="200"
-            className="h-1/2 md:h-full w-full grow"
+            className="h-1/2 w-full object-cover"
           />
         </div>
-        <div className='md:w-1/2 ml-4'>
+        <div className='md:w-1/2 w-full p-2'>
           <h4 className="font-bold text-lg">{title}</h4>
           <p className='w-full'>{description}</p>
           <h4 className="font-bold mt-2 text-2xl lg:text-3xl">
@@ -44,7 +44,7 @@ const SingleProduct = async ({params}) => {
             </span>
           </div>
           <h4 className='font-bold bg-purple-900 text-orange-400 text-blue-600 text-xl border-2 p-2 my-4 text-center rounded-lg'>Product Reviews</h4>
-          <ul className='overflow-y-auto h-48 md:h-96'>
+          <ul className='h-full'>
             {comments.map(({body, email, name, id}) => {
               return (
                 <li
