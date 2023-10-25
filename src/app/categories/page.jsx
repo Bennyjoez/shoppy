@@ -1,17 +1,29 @@
+"use client"
+
 import getProducts from '@/lib/getProducts';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useQuery } from 'react-query';
+import Loading from './loading';
 
-const Categories = async () => {
-  const data = await getProducts();
+const Categories = () => {
+  const {
+    data,
+    isLoading,
+    error,
+  } = useQuery("products", getProducts);
+
   const products = {
     "Men's Clothing": "/men.jpg",
     "Women's Clothing": "/women.jpg",
     "Jewelery": "/jewelery_2.jpg",
     "Electronics": "/electronics.jpg",
   };
+
   const categories = Object.keys(products)
+
+  if(isLoading) <Loading />
 
   return (
     <div className="min-h-screen text-blue-950">
