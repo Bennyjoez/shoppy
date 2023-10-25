@@ -23,7 +23,8 @@ const Categories = () => {
 
   const categories = Object.keys(products)
 
-  if(isLoading) <Loading />
+  if(isLoading) return <Loading />
+  if(error) return <div>An error occurred: {error.message}</div>
 
   return (
     <div className="min-h-screen text-blue-950">
