@@ -3,12 +3,26 @@ import getComments from '@/lib/getComments';
 import getProducts from '@/lib/getProducts';
 import Image from 'next/image';
 import React from 'react';
+import { useQuery } from 'react-query';
 
-const SingleProduct = async ({params}) => {
+const SingleProduct = ({params}) => {
   const targetId = params.slug;
-  const products = await getProducts();
-  const comments = await getComments();
-  const {id, image, price, rating, title, description} = products.filter((prod) => prod.id == targetId)[0];
+  const {
+    data: products,
+    isLoading,
+    error,
+  } = useQuery("products", getProducts);
+
+  const {
+    data: comments,
+  } = useQuery("comments", getComments);
+
+  const {id, image, price, rating, title, description} = products?.filter((prod) => prod.id == targetId)[0];
+
+  if (isLoading) return <div className='text-black'>Fetching products...</div>
+
+  if(error) return <div>An error occurred: {error.message}</div>
+
   return (
     <div key={id} className="w-screen max-h-fit mb-4 ms-auto me-auto xl:w-3/4 border bg-white rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
     >
@@ -45,7 +59,7 @@ const SingleProduct = async ({params}) => {
           </div>
           <h4 className='font-bold bg-purple-900 text-orange-400 text-blue-600 text-xl border-2 p-2 my-4 text-center rounded-lg'>Product Reviews</h4>
           <ul className='h-full'>
-            {comments.map(({body, email, name, id}) => {
+            {comments?.map(({body, email, name, id}) => {
               return (
                 <li
                   key={id}
