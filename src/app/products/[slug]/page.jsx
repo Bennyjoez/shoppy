@@ -17,11 +17,10 @@ const SingleProduct = ({params}) => {
     data: comments,
   } = useQuery("comments", getComments);
 
+  if(isLoading) return <div className='text-black'>Loading product details...</div>
+  if(error) return <div>An error occured: {error.message}</div>
+
   const {id, image, price, rating, title, description} = products?.filter((prod) => prod.id == targetId)[0];
-
-  if (isLoading) return <div className='text-black'>Fetching products...</div>
-
-  if(error) return <div>An error occurred: {error.message}</div>
 
   return (
     <div key={id} className="w-screen max-h-fit mb-4 ms-auto me-auto xl:w-3/4 border bg-white rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
