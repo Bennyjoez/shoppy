@@ -2,10 +2,7 @@
 
 import React from 'react';
 import Product from '@/components/product/Product';
-// import Link from 'next/link';
-// import Image from 'next/image';
 import getProducts from '@/lib/getProducts';
-// import Button from '@/components/button/button';
 import { useQuery } from 'react-query';
 
 const Products = () => {
