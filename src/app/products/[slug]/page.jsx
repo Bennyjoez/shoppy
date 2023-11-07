@@ -23,7 +23,7 @@ const SingleProduct = ({params}) => {
   const {id, image, price, rating, title, description} = products?.filter((prod) => prod.id == targetId)[0];
 
   return (
-    <div key={id} className="w-screen max-h-fit mb-4 ms-auto me-auto xl:w-3/4 border bg-white rounded-xl flex flex-col relative shadow-lg shadow-blue-500/30 hover:shadow-indigo-500/50 text-blue-950"
+    <div key={id} className="w-fit max-h-fit mb-4 ms-auto me-auto xl:w-3/4 bg-white flex flex-col relative text-blue-950"
     >
       <div className='md:flex w-fit'>
         <div className='w-1/2 md:h-3/4 xl:min-h-5/6 ms-auto me-auto'>
@@ -56,7 +56,7 @@ const SingleProduct = ({params}) => {
               )
             </span>
           </div>
-          <h4 className='font-bold bg-purple-900 text-orange-400 text-blue-600 text-xl border-2 p-2 my-4 text-center rounded-lg'>Product Reviews</h4>
+          <h4 className='font-bold bg-purple-900 text-orange-400 text-xl border-2 p-2 my-4 text-center rounded-lg'>Product Reviews</h4>
           <ul className='h-full'>
             {comments?.map(({body, email, name, id}) => {
               return (
